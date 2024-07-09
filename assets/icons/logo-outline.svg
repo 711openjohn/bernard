@@ -1,0 +1,10 @@
+<svg width="220" height="220" viewBox="0 0 220 220"
+	xmlns="http://www.w3.org/2000/svg">
+	<g id="svgGroup" stroke-linecap="round" fill-rule="evenodd" font-size="9pt" stroke-width="0.05mm" fill="none" style="stroke:#ffffff;stroke-width:0.68mm;fill:none">
+		<path d="M 110 110 m -15 0 a 15 15 0 0 1 30 0 a 15 15 0 0 1 -30 0 z" id="o1" vector-effect="non-scaling-stroke"></path>
+		<path d="M 110 115.774 160 202.376 M 115 107.113 165 20.511 M 105 107.113 5 107.113" id="l1" vector-effect="non-scaling-stroke"></path>
+		<path d="M 48.2 115.774 L 160 202.376 L 110 115.774 L 48.2 115.774 Z M 110 115.774 L 48.2 115.774 L 56.48 146.674 L 110 115.774 Z" id="m1" vector-effect="non-scaling-stroke"></path>
+		<path d="M 145.9 160.634 L 165 20.511 L 115 107.113 L 145.9 160.634 Z M 115 107.113 L 145.9 160.634 L 168.52 138.013 L 115 107.113 Z" id="m2" vector-effect="non-scaling-stroke"></path>
+		<path d="M 135.9 53.593 L 5 107.113 L 105 107.113 L 135.9 53.593 Z M 105 107.113 L 135.9 53.593 L 105 45.313 L 105 107.113 Z" id="m3" vector-effect="non-scaling-stroke"></path>
+	</g>
+</svg>
