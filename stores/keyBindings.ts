@@ -48,6 +48,7 @@ export const useKeyBindingStore = defineStore("ui/keybinding", {
         this.keyBinding.map((e: KeyBinding) => {
           const obj = new KeyBinding();
           obj.api_key = llmIdLookUp.get(e.llmUuid)?.apiKey || "";
+          obj.type = llmIdLookUp.get(e.llmUuid)?.type || "";
           return Object.assign(obj, e);
         })
       );

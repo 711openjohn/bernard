@@ -15,6 +15,7 @@ import titleBarActionsModule from "./modules/titleBarActions";
 import updaterModule from "./modules/updater";
 import macMenuModule from "./modules/macMenu";
 import { Gemini } from "./clients/gemini";
+import { Chatgpt } from "./clients/openai";
 
 // Initilize
 // =========
@@ -94,12 +95,20 @@ app.whenReady().then(async () => {
               body: context,
               silent: true,
             }).show();
-            const gemini = new Gemini();
-            gemini.API_KEY = keybinding.api_key;
-            const result = await gemini.chat(
-              `${keybinding.prompt}\n${context}`
-            );
-            clipboard.writeText(result);
+            // GoogleGemini = "GoogleGemini",
+            // OpenAIChatGpt35 = "ChatGpt35",
+            let result = "";
+            if (keybinding.type === "GoogleGemini") {
+              const gemini = new Gemini();
+              gemini.API_KEY = keybinding.api_key;
+              result = await gemini.chat(`${keybinding.prompt}\n${context}`);
+            }
+            if (keybinding.type === "ChatGpt35") {
+              const chatgpt = new Chatgpt();
+              chatgpt.API_KEY = keybinding.api_key;
+              result = await chatgpt.chat(`${keybinding.prompt}\n${context}`);
+            }
+
             new Notification({
               title: `[Done]${keybinding.name}`,
               body: result,

@@ -35,6 +35,24 @@
             @click="handlers.handleDeleteLlm(llm)"
           />
         </div>
+        <div class="flex flex-row items-center">
+          <div class="flex w-full flex-1 flex-row items-center p-1">
+            <div class="min-w-24">Type:</div>
+            <select
+              v-model="llm.type"
+              class="bg-slate-950"
+              @change="
+                () => {
+                  handlers.handleUpdateLlm(llm);
+                }
+              "
+            >
+              <option v-for="k of data.LLMModelType" :key="k" :value="k">
+                {{ k }}
+              </option>
+            </select>
+          </div>
+        </div>
         <div class="flex flex-row items-center p-1">
           <div class="flex w-full flex-1 flex-row items-center gap-2">
             <div class="w-24">API Key:</div>
@@ -51,29 +69,31 @@
   </div>
 </template>
 <script lang="ts">
-import { useLlmModelStore } from '~/stores/llmModels'
-import { LLMModel } from '~/types/ui'
+import { useLlmModelStore } from "~/stores/llmModels";
+import { LLMModel, LLMModelType } from "~/types/ui";
 
 export default defineComponent({
   components: {},
   setup() {
-    const ls = useLlmModelStore()
+    const ls = useLlmModelStore();
     const handleAddLlm = () => {
-      const instance = LLMModel.newInstance()
-      ls.update(instance)
-      ls.save()
-    }
+      const instance = LLMModel.newInstance();
+      ls.update(instance);
+      ls.save();
+    };
     const handleDeleteLlm = (instance: LLMModel) => {
-      ls.remove(instance)
-      ls.save()
-    }
+      ls.remove(instance);
+      ls.save();
+    };
     const handleUpdateLlm = (instance: LLMModel) => {
-      ls.update(instance)
-      ls.save()
-    }
+      ls.update(instance);
+      ls.save();
+    };
     return buildDefineComponentSetup(
       {
-        data: {},
+        data: {
+          LLMModelType,
+        },
         methods: {},
         handlers: {
           handleAddLlm,
@@ -85,7 +105,7 @@ export default defineComponent({
         },
       },
       {}
-    )
+    );
   },
-})
+});
 </script>
